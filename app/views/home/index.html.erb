@@ -1,7 +1,60 @@
-<div class="container">
-      <h1>추첨 결과</h1>
-      <p><%= "이번주 로또 번호는 #{@drw_numbers} 이고, 보너스 번호는 #{@bonus_number} 입니다." %></p>
-      <p><%= "추첨한 로또 번호는 #{@my_numbers} 입니다." %></p>
-      <p><%= "겹치는 번호는 #{@match_numbers} 입니다." %></p>
-      <p><%= "결과는 #{@result} 입니다." %></p>
-    </div>
+<div class="container" style="width: 420px;height:900px;margin : 0 auto;">
+    <h1 style="text-align : center">추첨 결과</h1>
+    <hr><hr>
+    <table style = "border : 1px solid black;">
+        <tr>
+            <th style = "height: 20px;border : 1px solid black;">
+                당첨번호
+            </th>
+            <td></td>
+            <th style = "height: 20px;border : 1px solid black;">
+                보너스
+            </th>
+        </tr>
+        <tr>
+            <td style = "height: 60px;border : 1px solid black;">
+                <% @drw_numbers.each do |x| %>
+                    <%= image_tag "ball_" + x.to_s + ".png" %>
+                <% end %>
+            </td>
+            <td></td>
+            <td style = "height: 60px;border : 1px solid black;">
+                <%= image_tag "ball_" + @bonus_number.to_s + ".png" %>
+            </td>
+        </tr>
+    </table>
+    <table style = "border : 1px solid black;">
+        <tr>
+            <th style = "height: 20px;border : 1px solid black;">
+                나의 랜덤 번호
+            </th>
+        </tr>
+        <tr>
+            <td style = "height: 60px;border : 1px solid black;">
+                <% @my_numbers.each do |x| %>
+                    <%= image_tag "ball_" + x.to_s + ".png" %>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <table style = "border : 1px solid black;">
+        <tr>
+            <th style = "height: 20px;border : 1px solid black;">
+                겹치는 번호
+            </th>
+        </tr>
+        <tr>
+            <td style = "width:341px; height: 60px; border : 1px solid black;">
+                <% @match_numbers.each do |x| %>
+                    <%= image_tag "ball_" + x.to_s + ".png" %>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <hr><hr>
+    <div style="text-align : center">
+        <p>
+            <h2><%= "결과는 #{@result} 입니다." %></h2>
+        </p>
+    </div>    
+</div>

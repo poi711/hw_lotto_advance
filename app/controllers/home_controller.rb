@@ -21,7 +21,7 @@ class HomeController < ApplicationController
         bonus_number = get_info["bnusNo"]
         
         # 내가 추첨한 로또 번호 6개를 오름차순 정렬하여 my_numbers 배열에 저장.
-        my_numbers = [*1..45].sample(6).sort
+        my_numbers = (1..45).to_a.sample(6).sort
         
         # drw_numbers 과 my_numbers 중 겹치는 숫자들(배열)을 match_numbers 에 저장.
         match_numbers = my_numbers & drw_numbers
